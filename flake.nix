@@ -17,7 +17,7 @@
         defaultPackage = naersk-lib.buildPackage {
           src = ./.;
           doCheck = true;
-          pname = "easy-neovim-aerospace-nav";
+          pname = "easy-neovim-wm-nav";
           nativeBuildInputs = [ pkgs.makeWrapper ];
           buildInputs = with pkgs; [
             dbus
@@ -27,7 +27,7 @@
           ];
 
           postInstall = ''
-            wrapProgram "$out/bin/easy-neovim-aerospace-nav" --prefix LD_LIBRARY_PATH : "${libPath}"
+            wrapProgram "$out/bin/easy-neovim-wm-nav" --prefix LD_LIBRARY_PATH : "${libPath}"
           '';
 
         };
