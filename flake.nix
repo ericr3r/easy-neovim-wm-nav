@@ -20,9 +20,7 @@
           pname = "easy-neovim-wm-nav";
           nativeBuildInputs = [ pkgs.makeWrapper ];
           buildInputs = with pkgs; [
-            dbus
-            xdotool
-            xorg.libX11
+            iconv
             pkg-config
           ];
 
@@ -38,6 +36,7 @@
         devShell = with pkgs; mkShell {
           buildInputs = [
             cargo
+            iconv
             rustc
             rustfmt
             rust-analyzer
