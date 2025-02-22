@@ -9,7 +9,7 @@
 
   outputs = { self, nixpkgs, utils, naersk, ... }:
     let
-      systems = [ "x86_64-linux" "aarch64" ];
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
     in
     utils.lib.eachSystem systems (system:
       let
