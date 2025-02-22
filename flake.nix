@@ -5,11 +5,12 @@
     naersk.url = "github:nix-community/naersk/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     utils.url = "github:numtide/flake-utils";
-    systems.url = "github:nix-systems/aarch64-darwin";
-    utils.inputs.systems.follows = "systems";
   };
 
   outputs = { self, nixpkgs, utils, naersk, ... }:
+    let 
+      systems = ["x86_64-linux" "aarch64"];
+    in
     utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
