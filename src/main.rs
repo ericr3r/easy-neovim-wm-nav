@@ -3,6 +3,7 @@ mod direction;
 mod hypr;
 mod nvim;
 mod server;
+mod sway;
 
 use crate::aerospace::Aerospace;
 use crate::server::Server;
@@ -10,6 +11,7 @@ use clap::Parser;
 use direction::{Backend, Cli, Direction};
 use hypr::Hypr;
 use nvim::Nvim;
+use sway::Sway;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Cli::parse();
@@ -18,6 +20,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let server: Box<dyn Server> = match args.backend {
         Backend::Aerospace => Box::new(Aerospace::new()),
         Backend::Hyprland => Box::new(Hypr::new()),
+        Backend::Sway => Box::new(Sway::new().ok_or("sway backend failed")?),
     };
 
     let window_title = server.get_window_title()?;

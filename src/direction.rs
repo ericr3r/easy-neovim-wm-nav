@@ -21,6 +21,7 @@ pub enum Direction {
 pub enum Backend {
     Aerospace,
     Hyprland,
+    Sway,
 }
 
 impl fmt::Display for Direction {
