@@ -50,7 +50,6 @@ impl<'a> Nvim<'a> {
 
 impl<'a> Server<'a> for Nvim<'a> {
     fn navigate(&self, direction: Direction) -> Result<(), Box<dyn std::error::Error>> {
-        println!("{direction:?}");
         let mut session = Session::new_unix_socket(self.server_name)?;
         session.start_event_loop();
 
@@ -58,7 +57,6 @@ impl<'a> Server<'a> for Nvim<'a> {
 
         let old_window = nvim.get_current_win()?;
         let cmd = direction_to_wincmd(direction);
-        println!("{cmd:?}");
         nvim.command(&cmd)?;
 
         let window = nvim.get_current_win()?;

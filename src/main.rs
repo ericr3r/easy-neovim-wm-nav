@@ -1,20 +1,25 @@
 mod aerospace;
 mod direction;
+mod hypr;
 mod nvim;
 mod server;
 
 use crate::aerospace::Aerospace;
 use crate::server::Server;
 use clap::Parser;
-use direction::{Cli, Direction};
+use direction::{Backend, Cli, Direction};
+use hypr::Hypr;
 use nvim::Nvim;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Cli::parse();
 
     let direction = args.direction;
+    let server: Box<dyn Server> = match args.backend {
+        Backend::Aerospace => Box::new(Aerospace::new()),
+        Backend::Hyprland => Box::new(Hypr::new()),
+    };
 
-    let server: Box<dyn Server> = Box::new(Aerospace::new());
     let window_title = server.get_window_title()?;
 
     navigate(server, window_title, direction)
