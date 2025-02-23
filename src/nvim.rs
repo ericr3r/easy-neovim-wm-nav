@@ -54,7 +54,7 @@ impl<'a> Server<'a> for Nvim<'a> {
         let mut nvim = Neovim::new(session);
 
         let old_window = nvim.get_current_win()?;
-        let cmd = format!("wincmd {}", direction);
+        let cmd = direction_to_wincmd(direction);
         nvim.command(&cmd)?;
 
         let window = nvim.get_current_win()?;
@@ -71,6 +71,16 @@ impl<'a> Server<'a> for Nvim<'a> {
     }
 }
 
+fn direction_to_wincmd(direction: Direction) -> String {
+    let vim_direction = match direction {
+        Direction::Left => "h",
+        Direction::Right => "l",
+        Direction::Up => "k",
+        Direction::Down => "j",
+    };
+
+    format!("wincmd {}", vim_direction)
+}
 pub fn nvim_regex() -> regex::Regex {
     let regex_string = beginning()
         + zero_or_more(any())
