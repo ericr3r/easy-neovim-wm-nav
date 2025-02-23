@@ -34,25 +34,25 @@ square brackets at the very end of your `titlestring`.
 ### Hyprland key bindings
 ```
 # Arrow Keys
-bind = $mainMod, left, exec, easy-neovim-wm-nav left --backend hyprland
-bind = $mainMod, right, exec, easy-neovim-wm-nav right --backend hyprland 
-bind = $mainMod, up, exec, easy-neovim-wm-nav up --backend hyprland 
-bind = $mainMod, down, exec, easy-neovim-wm-nav down --backend hyprland 
+bind = $mainMod, left, exec, easy-neovim-wm-nav left
+bind = $mainMod, right, exec, easy-neovim-wm-nav right
+bind = $mainMod, up, exec, easy-neovim-wm-nav up
+bind = $mainMod, down, exec, easy-neovim-wm-nav down
 
 # HJKL
-bind = $mainMod, H, exec, easy-neovim-wm-nav left --backend hyprland 
-bind = $mainMod, L, exec, easy-neovim-wm-nav right --backend hyprland
-bind = $mainMod, K, exec, easy-neovim-wm-nav up --backend hyprland
-bind = $mainMod, J, exec, easy-neovim-wm-nav down --backend hyprland 
+bind = $mainMod, H, exec, easy-neovim-wm-nav left
+bind = $mainMod, L, exec, easy-neovim-wm-nav right
+bind = $mainMod, K, exec, easy-neovim-wm-nav up
+bind = $mainMod, J, exec, easy-neovim-wm-nav down
 
 ```
 
 ### Sway key bindings
 ```
-bindsym Mod4+h exec easy-neovim-wm-nav -b sway left
-bindsym Mod4+j exec easy-neovim-wm-nav -b sway down
-bindsym Mod4+k exec easy-neovim-wm-nav -b sway up
-bindsym Mod4+l exec easy-neovim-wm-nav -b sway right
+bindsym Mod4+h exec easy-neovim-wm-nav left
+bindsym Mod4+j exec easy-neovim-wm-nav down
+bindsym Mod4+k exec easy-neovim-wm-nav up
+bindsym Mod4+l exec easy-neovim-wm-nav right
 
 ```
 
