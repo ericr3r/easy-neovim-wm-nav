@@ -10,9 +10,10 @@ pub struct Sway {
 }
 
 impl Sway {
-    pub fn new() -> Option<Sway> {
-        let conn = Connection::new().ok()?;
-        Some(Sway {
+    pub fn new() -> Result<Sway, Box<dyn std::error::Error>> {
+        let conn = Connection::new()?;
+
+        Ok(Sway {
             conn: RefCell::new(conn),
         })
     }

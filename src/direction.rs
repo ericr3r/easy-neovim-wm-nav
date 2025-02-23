@@ -5,7 +5,7 @@ use std::fmt;
 pub struct Cli {
     #[clap(value_enum)]
     pub direction: Direction,
-    #[clap(short, long, value_enum, default_value_t = Backend::Hyprland)]
+    #[clap(short, long, value_enum, default_value_t = Backend::Auto)]
     pub backend: Backend,
 }
 
@@ -20,6 +20,7 @@ pub enum Direction {
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Debug, ValueEnum)]
 pub enum Backend {
     Aerospace,
+    Auto,
     Hyprland,
     Sway,
 }
