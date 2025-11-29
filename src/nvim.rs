@@ -39,7 +39,7 @@ pub struct Nvim<'a> {
 }
 
 impl<'a> Nvim<'a> {
-    pub fn new(window_name: &str) -> Option<Nvim> {
+    pub fn new(window_name: &str) -> Option<Nvim<'_>> {
         let caps = nvim_regex().captures(window_name)?;
         let server_name = caps.name("server_name")?.as_str();
         Some(Nvim { server_name })
